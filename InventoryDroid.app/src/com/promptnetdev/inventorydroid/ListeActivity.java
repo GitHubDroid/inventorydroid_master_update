@@ -16,8 +16,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import com.promptnetdev.inventorydroid.R;
 
-public class ListeActivity extends ListActivity 
-		implements OnItemClickListener, OnItemLongClickListener{
+public class ListeActivity extends ListActivity implements OnItemClickListener, OnItemLongClickListener{
 	
 	DBHelper mDBHelper;
 	SimpleCursorAdapter mAdapter;

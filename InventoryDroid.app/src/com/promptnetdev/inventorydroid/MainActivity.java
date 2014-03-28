@@ -21,8 +21,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import com.promptnetdev.inventorydroid.R;
 
-public class MainActivity extends Activity 
-			implements OnClickListener{
+public class MainActivity extends Activity implements OnClickListener{
     
 	DBHelper mDBHelper;
 	Button bt_scan, bt_list, bt_export_mail, bt_export_clipboard, bt_settings, bt_about;
@@ -65,7 +64,7 @@ public class MainActivity extends Activity
 		if(v==bt_scan){
 			
 			Intent intent = new Intent(this, ScanActivity.class);
-			intent.putExtra(ScanActivity.EXTRA_NEW_ON_SAVE, getSharedPreferences("am.dev.mikroinventur_preferences", 0).getBoolean("quickscan", true));
+			intent.putExtra(ScanActivity.EXTRA_NEW_ON_SAVE, getSharedPreferences("com.promptnetdev.inventorydroid_preferences", 0).getBoolean("quickscan", true));
 			startActivity(intent);
 			
 		}else if(v==bt_list){
@@ -95,12 +94,12 @@ public class MainActivity extends Activity
 					
 				} catch (/*IO*/Exception e) {
 					//TODO add translation for error message
-					Toast.makeText(MainActivity.this, "Fehler beim Speichern der Datei\nWird als Text angehängt", Toast.LENGTH_LONG).show();
+					Toast.makeText(MainActivity.this, "Error ID Unknown", Toast.LENGTH_LONG).show();
 					e.printStackTrace();
 				}
 				
 			}else{//attach as text
-				Toast.makeText(MainActivity.this, "Kein Zugriff auf den Speicher\nWird als Text angehängt", Toast.LENGTH_LONG).show();
+				Toast.makeText(MainActivity.this, "Error with attach as text", Toast.LENGTH_LONG).show();
 			}
 			
 			final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
