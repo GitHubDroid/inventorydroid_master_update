@@ -209,7 +209,7 @@ public class ScanActivity extends Activity
 		a.setBarcode(et_code.getText().toString());
 		a.setBarcodeFormat(et_format.getText().toString());
 		a.setName(et_name.getText().toString());
-		a.setPrice(et_price.getText().toString());
+//		a.setPrice(et_price.getText().toString());
 		a.setAmount(et_amount.getText().toString());
 		a.setDescription(et_description.getText().toString());
 		return a;
@@ -222,7 +222,7 @@ public class ScanActivity extends Activity
 		
 		itemId = ii.getId();
 		et_name.setText(ii.getName());
-    	et_price.setText(ii.getPrice());
+//    	et_price.setText(ii.getPrice());
     	et_amount.setText(ii.getAmount());
     	et_description.setText(ii.getDescription());
     	et_code.setText(ii.getBarcode());

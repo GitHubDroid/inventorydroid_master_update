@@ -12,7 +12,7 @@ public class InventoryItem {
 	private String sBarcode;
 	private String sBarcodeFormat;
 	private String sName;
-	private String sPrice;
+//	private String sPrice;
 	private String sAmount;
 	private String sDescription;
 	private long articleId = INVALID;
@@ -25,7 +25,7 @@ public class InventoryItem {
 		try{
 			articleId = c.getLong(c.getColumnIndexOrThrow(DBHelper.KEY_ID));
 			sName = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_NAME));
-			sPrice = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_PRICE));
+//			sPrice = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_PRICE));
 			sAmount = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_AMOUNT));
 			sDescription = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_DESCRIPTION));
 			sBarcode = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_CODE));
@@ -41,7 +41,7 @@ public class InventoryItem {
 		cv.put(DBHelper.KEY_CODE, sBarcode);
 		cv.put(DBHelper.KEY_FORMAT, sBarcodeFormat);
 		cv.put(DBHelper.KEY_NAME, sName);
-		cv.put(DBHelper.KEY_PRICE, sPrice);
+//		cv.put(DBHelper.KEY_PRICE, sPrice);
 		cv.put(DBHelper.KEY_AMOUNT, sAmount);
 		cv.put(DBHelper.KEY_DESCRIPTION, sDescription);
 		
@@ -84,13 +84,13 @@ public class InventoryItem {
 		this.sName = sName;
 	}
 
-	public String getPrice() {
-		return sPrice;
-	}
-
-	public void setPrice(String sPrice) {
-		this.sPrice = sPrice;
-	}
+//	public String getPrice() {
+//		return sPrice;
+//	}
+//
+//	public void setPrice(String sPrice) {
+//		this.sPrice = sPrice;
+//	}
 
 	public String getAmount() {
 		return sAmount;

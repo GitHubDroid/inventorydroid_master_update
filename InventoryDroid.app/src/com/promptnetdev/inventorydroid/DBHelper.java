@@ -13,15 +13,19 @@ public class DBHelper {
 	private SQLiteDatabase mDB;
 
 	public static final String DB_NAME = "inventory.db";
-	public static final String TABLE_ITEMS = "articles";
+	public static final String TABLE_ITEMS = "items";
 	public static final String KEY_ID = "_id";
 	public static final String KEY_CODE = "code";
 	public static final String KEY_FORMAT = "format";
 	public static final String KEY_NAME = "name";
-	public static final String KEY_PRICE = "price";
+//	public static final String KEY_PRICE = "price";
 	public static final String KEY_AMOUNT = "amount";
 	public static final String KEY_DESCRIPTION = "description";
-
+	
+	// add Manufacturer, item type, Model  Field
+	public static final String KEY_ITEMTYPE = "itemtype";
+	public static final String KEY_MANUFACTURER = "manufacturer";
+	public static final String KEY_MODEL = "model";
 	private static final int DB_VERSION = 1;
 	private final Context mCtx;
 
@@ -30,7 +34,7 @@ public class DBHelper {
 		DatabaseHelper(Context context) {
 			super(context, DB_NAME, null, DB_VERSION);
 		}
-
+		// add Manufacturer, item type, Model  FieldS to table
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_ITEMS
@@ -38,7 +42,10 @@ public class DBHelper {
 					+ " code VARCHAR(20), "
 					+ " format VARCHAR(20), "
 					+ " name VARCHAR(30), "
-					+ " price VARCHAR(10), "
+					+ " itemtype VARCHAR(30),"
+					+ " manufacturer VARCHAR(50), "
+					+ " model VARCHAR(30), "
+//					+ " price VARCHAR(10), "
 					+ " amount VARCHAR(10), "
 					+ " description VARCHAR(200))"
 			);
@@ -127,7 +134,10 @@ public class DBHelper {
 		
 		Cursor c = getCursor("SELECT "
 				+KEY_NAME+","
-				+KEY_PRICE+","
+				+KEY_ITEMTYPE+","
+				+KEY_MODEL+","
+				+KEY_MANUFACTURER+","
+//				+KEY_PRICE+","
 				+KEY_DESCRIPTION+","
 				+KEY_AMOUNT+","
 				+KEY_CODE+","
