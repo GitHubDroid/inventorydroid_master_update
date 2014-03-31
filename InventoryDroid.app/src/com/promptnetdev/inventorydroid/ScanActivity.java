@@ -56,7 +56,7 @@ public class ScanActivity extends Activity
         et_code = (EditText) findViewById(R.id.et_code);
         et_format = (EditText) findViewById(R.id.et_format);
         et_name = (EditText) findViewById(R.id.et_name);
-        et_price = (EditText) findViewById(R.id.et_price);
+//        et_price = (EditText) findViewById(R.id.et_price);
         et_amount = (EditText) findViewById(R.id.et_amount);
         et_description = (EditText) findViewById(R.id.et_description);
         
