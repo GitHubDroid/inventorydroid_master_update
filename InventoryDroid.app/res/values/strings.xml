@@ -45,6 +45,6 @@
 	<string name="deletedb_dialog_title">Delete database</string>
 	<string name="deletedb_dialog_message">Do you really want to delete the entire database? This cannot be made undone.</string>
 	<string name="empty_list_info">There are no articles to display. Go and scan some!</string>
-	<string name="about_text">This app was developed by Ansgar Mertens (see http://www.c-labs-android.de)\n\nSome Menu Icons are licensed under a Creative Commons License as follows:\n\nThis work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.\n\nThese icons can be used both commercially and for personal use, but you must always add a link to www.androidicons.com inside your software or your website. You must not resell any icons or distribute them in any other way than referring to www.androidicons.com. The Icons as such are the property of the author.</string>
+	<string name="about_text">This app was developed by Prompt Network Systems - Mobile Development.</string>
 	    
 </resources>
