@@ -6,7 +6,7 @@
 
 	<ScrollView
 	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
+	    android:layout_height="0dip"
 	    android:layout_weight="1"
 	    android:scrollbars="vertical" >
 	    
@@ -85,7 +85,7 @@
 		    <TextView
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="@string/name_and_price"
+		        android:text="@string/details"
 		        android:textSize="20sp"
 		        android:textStyle="bold" />
 		
@@ -112,28 +112,64 @@
 		                android:layout_weight="1"
 		                android:hint="@string/example_name" />
 		        </TableRow>
-		
+		        
 		        <TableRow
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
 		            android:gravity="center" >
 		
-<!-- 		            <TextView -->
-<!-- 		                android:layout_width="wrap_content" -->
-<!-- 		                android:layout_height="wrap_content" -->
-<!-- 		                android:text="@string/price" -->
-<!-- 		                android:textSize="20sp" /> -->
+		            <TextView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/type"
+		                android:textSize="20sp" />
 		
-<!-- 		            <EditText -->
-<!-- 		                android:id="@+id/et_price" -->
-<!-- 		                android:layout_width="wrap_content" -->
-<!-- 		                android:layout_height="wrap_content" -->
-<!-- 		                android:layout_weight="1" -->
-<!-- 		                android:hint="@string/example_price" -->
-<!-- 		                android:inputType="numberDecimal" /> -->
-		
+		            <EditText
+		                android:id="@+id/et_itemtype"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_weight="1"
+		                android:hint="@string/example_type" />
 		        </TableRow>
-
+		        
+		         <TableRow
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:gravity="center" >
+		
+		            <TextView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/manufacturer"
+		                android:textSize="20sp" />
+		
+		            <EditText
+		                android:id="@+id/et_manufacturer"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_weight="1"
+		                android:hint="@string/example_manufacturer" />
+		        </TableRow>
+		        
+		         <TableRow
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:gravity="center" >
+		
+		            <TextView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/model"
+		                android:textSize="20sp" />
+		
+		            <EditText
+		                android:id="@+id/et_model"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_weight="1"
+		                android:hint="@string/example_model" />
+		        </TableRow>
+		
 		        <TableRow
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
@@ -143,16 +179,16 @@
 		                android:layout_width="wrap_content"
 		                android:layout_height="wrap_content"
 		                android:layout_gravity="center"
-		                android:text="@string/amount"
+		                android:text="@string/quantity"
 		                android:textSize="20sp" />
 
 		            <EditText
-		                android:id="@+id/et_amount"
+		                android:id="@+id/et_quantity"
 		                android:layout_width="wrap_content"
 		                android:layout_height="wrap_content"
 		                android:layout_weight="1"
 		                android:gravity="center"
-		                android:hint="@string/example_amount"
+		                android:hint="@string/example_quantity"
 		                android:inputType="number"
 		                android:text="1" />
 
@@ -222,6 +258,18 @@
 		    android:text="@string/delete"
 		    android:visibility="gone" />
 
+		
+		   <FrameLayout android:id="@+id/preview"
+           android:layout_weight="1" android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+     </FrameLayout>
+
+    <Button android:layout_width="wrap_content"
+              android:layout_height="wrap_content" android:id="@+id/buttonClick"
+          android:text="Click" android:layout_gravity="center"></Button>
 	</LinearLayout>
 
+
+
+	
 </LinearLayout>

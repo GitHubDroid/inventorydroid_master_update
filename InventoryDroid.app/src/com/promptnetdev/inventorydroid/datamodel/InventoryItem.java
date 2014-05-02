@@ -12,9 +12,11 @@ public class InventoryItem {
 	private String sBarcode;
 	private String sBarcodeFormat;
 	private String sName;
-//	private String sPrice;
-	private String sAmount;
+	private String sQuantity;
 	private String sDescription;
+	private String sItemtype;
+	private String sManufacturer;
+	private String sModel;
 	private long articleId = INVALID;
 	
 	public InventoryItem() {
@@ -24,12 +26,17 @@ public class InventoryItem {
 	public InventoryItem(Cursor c){
 		try{
 			articleId = c.getLong(c.getColumnIndexOrThrow(DBHelper.KEY_ID));
-			sName = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_NAME));
-//			sPrice = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_PRICE));
-			sAmount = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_AMOUNT));
-			sDescription = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_DESCRIPTION));
 			sBarcode = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_CODE));
 			sBarcodeFormat = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_FORMAT));
+			sName = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_NAME));
+			sItemtype = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_ITEMTYPE));
+			sManufacturer = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_MANUFACTURER));
+			sModel = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_MODEL));
+			sQuantity = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_QUANTITY));
+			sDescription = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_DESCRIPTION));
+			
+			
+			
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -41,8 +48,10 @@ public class InventoryItem {
 		cv.put(DBHelper.KEY_CODE, sBarcode);
 		cv.put(DBHelper.KEY_FORMAT, sBarcodeFormat);
 		cv.put(DBHelper.KEY_NAME, sName);
-//		cv.put(DBHelper.KEY_PRICE, sPrice);
-		cv.put(DBHelper.KEY_AMOUNT, sAmount);
+		cv.put(DBHelper.KEY_ITEMTYPE, sItemtype);
+		cv.put(DBHelper.KEY_MANUFACTURER, sManufacturer);
+		cv.put(DBHelper.KEY_MODEL, sModel);
+		cv.put(DBHelper.KEY_QUANTITY, sQuantity);
 		cv.put(DBHelper.KEY_DESCRIPTION, sDescription);
 		
 		return cv;
@@ -83,21 +92,37 @@ public class InventoryItem {
 	public void setName(String sName) {
 		this.sName = sName;
 	}
-
-//	public String getPrice() {
-//		return sPrice;
-//	}
-//
-//	public void setPrice(String sPrice) {
-//		this.sPrice = sPrice;
-//	}
-
-	public String getAmount() {
-		return sAmount;
+	
+	public String getItemType() {
+		return sItemtype;
+	}
+	
+	public void setItemType(String sItemtype) {
+		this.sItemtype = sItemtype;
+	}
+	
+	public String getManufacturer() {
+		return sManufacturer;
+	}
+	
+	public void setManufacturer(String sManufacturer) {
+		this.sManufacturer = sManufacturer;
+	}
+	
+	public String getModel() {
+		return sModel;
+	}
+	
+	public void setModel(String sModel) {
+		this.sModel = sModel;
+	}
+	
+	public String getQty() {
+		return sQuantity;
 	}
 
-	public void setAmount(String sAmount) {
-		this.sAmount = sAmount;
+	public void setQty(String sQty) {
+		this.sQuantity = sQty;
 	}
 
 	public String getDescription() {

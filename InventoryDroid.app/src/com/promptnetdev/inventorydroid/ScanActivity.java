@@ -22,7 +22,7 @@ public class ScanActivity extends Activity
 	public static final String EXTRA_NEW_ON_SAVE = "com.promptnetdev.inventorydroid_newOnSave";
 	
 	Button bt_scan, bt_plusone, bt_plusten, bt_minusone, bt_minusten, bt_save, bt_delete;
-	EditText et_code, et_format, et_name, et_price, et_amount, et_description;
+	EditText et_code, et_format, et_name, et_itemtype, et_manufacturer, et_model, et_quantity, et_description;
 	AlertDialog mDeleteDialog;
 	DBHelper mDBHelper;
 	Intent scanIntent;
@@ -56,8 +56,10 @@ public class ScanActivity extends Activity
         et_code = (EditText) findViewById(R.id.et_code);
         et_format = (EditText) findViewById(R.id.et_format);
         et_name = (EditText) findViewById(R.id.et_name);
-//        et_price = (EditText) findViewById(R.id.et_price);
-        et_amount = (EditText) findViewById(R.id.et_amount);
+        et_itemtype = (EditText) findViewById(R.id.et_itemtype);
+        et_manufacturer = (EditText) findViewById(R.id.et_manufacturer);
+        et_model = (EditText) findViewById(R.id.et_model);
+        et_quantity = (EditText) findViewById(R.id.et_quantity);
         et_description = (EditText) findViewById(R.id.et_description);
         
         bt_scan.setOnClickListener(this);
@@ -91,13 +93,13 @@ public class ScanActivity extends Activity
 			startActivityForResult(scanIntent, 0);
 			
 		}else if(v == bt_plusone){
-			addToAmount(1);
+			addToQty(1);
 		}else if(v == bt_plusten){
-			addToAmount(10);
+			addToQty(10);
 		}else if(v == bt_minusone){
-			addToAmount(-1);
+			addToQty(-1);
 		}else if(v == bt_minusten){
-			addToAmount(-10);
+			addToQty(-10);
 		}else if(v == bt_save){
 			
 			if(itemId == InventoryItem.INVALID){
@@ -181,23 +183,23 @@ public class ScanActivity extends Activity
 	}
 
 
-	private void addToAmount(int amount){
+	private void addToQty(int quantity){
 		
-		String current = et_amount.getText().toString(); 
+		String current = et_quantity.getText().toString(); 
 		
 		if(current.equals("")){
 			
-			et_amount.setText(String.valueOf(amount));
+			et_quantity.setText(String.valueOf(quantity));
 			
 		}else{
 			
 			int cur = Integer.valueOf(current);
-			int neu = cur + amount;
+			int neu = cur + quantity;
 			
 			if(neu<0){
-				et_amount.setText("0");
+				et_quantity.setText("0");
 			}else{
-				et_amount.setText(String.valueOf(neu));
+				et_quantity.setText(String.valueOf(neu));
 			}
 			
 		}
@@ -209,8 +211,10 @@ public class ScanActivity extends Activity
 		a.setBarcode(et_code.getText().toString());
 		a.setBarcodeFormat(et_format.getText().toString());
 		a.setName(et_name.getText().toString());
-//		a.setPrice(et_price.getText().toString());
-		a.setAmount(et_amount.getText().toString());
+		a.setItemType(et_itemtype.getText().toString());
+		a.setManufacturer(et_manufacturer.getText().toString());
+		a.setModel(et_model.getText().toString());
+		a.setQty(et_quantity.getText().toString());
 		a.setDescription(et_description.getText().toString());
 		return a;
 	}
@@ -221,12 +225,15 @@ public class ScanActivity extends Activity
 		}
 		
 		itemId = ii.getId();
-		et_name.setText(ii.getName());
-//    	et_price.setText(ii.getPrice());
-    	et_amount.setText(ii.getAmount());
-    	et_description.setText(ii.getDescription());
     	et_code.setText(ii.getBarcode());
     	et_format.setText(ii.getBarcodeFormat());
+		et_name.setText(ii.getName());
+		et_itemtype.setText(ii.getItemType());
+		et_manufacturer.setText(ii.getManufacturer());
+		et_model.setText(ii.getModel());
+    	et_quantity.setText(ii.getQty());
+    	et_description.setText(ii.getDescription());
+
     	
     	if(itemId == InventoryItem.INVALID)
     		bt_delete.setVisibility(View.GONE);
@@ -235,12 +242,15 @@ public class ScanActivity extends Activity
 	}
 	
 	private void resetViews(){
-		et_name.setText("");
-		et_price.setText("");
-		et_amount.setText("1");
-		et_description.setText("");
 		et_code.setText("");
 		et_format.setText("");
+		et_name.setText("");
+		et_itemtype.setText("");
+		et_manufacturer.setText("");
+		et_model.setText("");
+		et_quantity.setText("1");
+		et_description.setText("");
+		
 	}
 	
 }

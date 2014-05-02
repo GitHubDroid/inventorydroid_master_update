@@ -18,8 +18,7 @@ public class DBHelper {
 	public static final String KEY_CODE = "code";
 	public static final String KEY_FORMAT = "format";
 	public static final String KEY_NAME = "name";
-//	public static final String KEY_PRICE = "price";
-	public static final String KEY_AMOUNT = "amount";
+	public static final String KEY_QUANTITY = "quantity";
 	public static final String KEY_DESCRIPTION = "description";
 	
 	// add Manufacturer, item type, Model  Field
@@ -45,8 +44,7 @@ public class DBHelper {
 					+ " itemtype VARCHAR(30),"
 					+ " manufacturer VARCHAR(50), "
 					+ " model VARCHAR(30), "
-//					+ " price VARCHAR(10), "
-					+ " amount VARCHAR(10), "
+					+ " quantity VARCHAR(10), "
 					+ " description VARCHAR(200))"
 			);
 		}
@@ -133,15 +131,14 @@ public class DBHelper {
 			open();
 		
 		Cursor c = getCursor("SELECT "
+				+KEY_CODE+","	
+				+KEY_FORMAT+","			
 				+KEY_NAME+","
 				+KEY_ITEMTYPE+","
-				+KEY_MODEL+","
 				+KEY_MANUFACTURER+","
-//				+KEY_PRICE+","
-				+KEY_DESCRIPTION+","
-				+KEY_AMOUNT+","
-				+KEY_CODE+","
-				+KEY_FORMAT
+				+KEY_MODEL+","
+				+KEY_QUANTITY+","
+				+KEY_DESCRIPTION
 				+" FROM "+TABLE_ITEMS+" ORDER BY "+KEY_NAME);
 		
 		
