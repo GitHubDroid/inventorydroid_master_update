@@ -11,6 +11,7 @@ public class InventoryItem {
 	
 	private String sBarcode;
 	private String sBarcodeFormat;
+	private String sSerial;
 	private String sName;
 	private String sQuantity;
 	private String sDescription;
@@ -28,6 +29,7 @@ public class InventoryItem {
 			articleId = c.getLong(c.getColumnIndexOrThrow(DBHelper.KEY_ID));
 			sBarcode = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_CODE));
 			sBarcodeFormat = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_FORMAT));
+			sSerial = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_SERIAL));
 			sName = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_NAME));
 			sItemtype = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_ITEMTYPE));
 			sManufacturer = c.getString(c.getColumnIndexOrThrow(DBHelper.KEY_MANUFACTURER));
@@ -47,6 +49,7 @@ public class InventoryItem {
 		
 		cv.put(DBHelper.KEY_CODE, sBarcode);
 		cv.put(DBHelper.KEY_FORMAT, sBarcodeFormat);
+		cv.put(DBHelper.KEY_SERIAL, sSerial);
 		cv.put(DBHelper.KEY_NAME, sName);
 		cv.put(DBHelper.KEY_ITEMTYPE, sItemtype);
 		cv.put(DBHelper.KEY_MANUFACTURER, sManufacturer);
@@ -83,6 +86,14 @@ public class InventoryItem {
 
 	public void setBarcodeFormat(String sBarcodeFormat) {
 		this.sBarcodeFormat = sBarcodeFormat;
+	}
+	
+	public String getSerial() {
+		return sSerial;
+	}
+	
+	public void setSerial(String sSerial) {
+		this.sSerial = sSerial;
 	}
 
 	public String getName() {

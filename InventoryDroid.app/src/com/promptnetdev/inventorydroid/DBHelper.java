@@ -17,11 +17,10 @@ public class DBHelper {
 	public static final String KEY_ID = "_id";
 	public static final String KEY_CODE = "code";
 	public static final String KEY_FORMAT = "format";
+	public static final String KEY_SERIAL = "serial";
 	public static final String KEY_NAME = "name";
 	public static final String KEY_QUANTITY = "quantity";
 	public static final String KEY_DESCRIPTION = "description";
-	
-	// add Manufacturer, item type, Model  Field
 	public static final String KEY_ITEMTYPE = "itemtype";
 	public static final String KEY_MANUFACTURER = "manufacturer";
 	public static final String KEY_MODEL = "model";
@@ -39,6 +38,7 @@ public class DBHelper {
 			db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_ITEMS
 					+ " (_id INTEGER primary key autoincrement, "
 					+ " code VARCHAR(20), "
+					+ " serial VARCHAR(45),"
 					+ " format VARCHAR(20), "
 					+ " name VARCHAR(30), "
 					+ " itemtype VARCHAR(30),"
@@ -132,7 +132,8 @@ public class DBHelper {
 		
 		Cursor c = getCursor("SELECT "
 				+KEY_CODE+","	
-				+KEY_FORMAT+","			
+				+KEY_FORMAT+","	
+				+KEY_SERIAL+","
 				+KEY_NAME+","
 				+KEY_ITEMTYPE+","
 				+KEY_MANUFACTURER+","

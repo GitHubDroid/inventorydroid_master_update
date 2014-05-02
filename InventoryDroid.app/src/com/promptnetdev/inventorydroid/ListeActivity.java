@@ -25,10 +25,9 @@ public class ListeActivity extends ListActivity implements OnItemClickListener, 
 	
 	TextView empty;
 	
-	//OLD ORIGINAL String[] from = new String[]{DBHelper.KEY_AMOUNT,DBHelper.KEY_NAME, DBHelper.KEY_PRICE};
-	// OLD ORIGINAL int[] to = new int[]{R.id.tv_amount, R.id.tv_name, R.id.tv_price};
-	String[] from = new String[]{DBHelper.KEY_QUANTITY,DBHelper.KEY_NAME};
-	int[] to = new int[]{R.id.tv_amount, R.id.tv_name};
+	
+	String[] from = new String[]{DBHelper.KEY_QUANTITY,DBHelper.KEY_NAME,DBHelper.KEY_ITEMTYPE};
+	int[] to = new int[]{R.id.tv_quantity, R.id.tv_name};
 	
 	AlertDialog mDeleteDialog;
 	long lastDeleteId = -1;

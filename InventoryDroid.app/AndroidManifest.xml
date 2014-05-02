@@ -3,14 +3,30 @@
     package="com.promptnetdev.inventorydroid"
     android:versionCode="1"
     android:versionName="0.1 Beta" >
+    
+    <!-- permissions -->
+    
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19"/>
+    
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" >
+    </supports-screens>
 
     <application
+        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
             android:name="com.promptnetdev.inventorydroid.MainActivity"
+             android:configChanges="orientation|screenSize" 
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +34,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.promptnetdev.inventorydroid.ListeActivity" >
+        <activity android:name="com.promptnetdev.inventorydroid.ListeActivity"
+             android:configChanges="orientation|screenSize" >
         </activity>
         <activity android:name="com.promptnetdev.inventorydroid.SettingsActivity" >
         </activity>
@@ -27,8 +44,5 @@
         <activity android:name="com.promptnetdev.inventorydroid.AboutActivity" >
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

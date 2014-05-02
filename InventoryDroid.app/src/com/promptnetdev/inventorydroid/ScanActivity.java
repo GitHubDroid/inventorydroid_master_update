@@ -22,7 +22,7 @@ public class ScanActivity extends Activity
 	public static final String EXTRA_NEW_ON_SAVE = "com.promptnetdev.inventorydroid_newOnSave";
 	
 	Button bt_scan, bt_plusone, bt_plusten, bt_minusone, bt_minusten, bt_save, bt_delete;
-	EditText et_code, et_format, et_name, et_itemtype, et_manufacturer, et_model, et_quantity, et_description;
+	EditText et_code, et_format, et_serial, et_name, et_itemtype, et_manufacturer, et_model, et_quantity, et_description;
 	AlertDialog mDeleteDialog;
 	DBHelper mDBHelper;
 	Intent scanIntent;
@@ -55,6 +55,7 @@ public class ScanActivity extends Activity
         
         et_code = (EditText) findViewById(R.id.et_code);
         et_format = (EditText) findViewById(R.id.et_format);
+        et_serial = (EditText) findViewById(R.id.et_serial);
         et_name = (EditText) findViewById(R.id.et_name);
         et_itemtype = (EditText) findViewById(R.id.et_itemtype);
         et_manufacturer = (EditText) findViewById(R.id.et_manufacturer);
@@ -210,6 +211,7 @@ public class ScanActivity extends Activity
 		a.setId(itemId);
 		a.setBarcode(et_code.getText().toString());
 		a.setBarcodeFormat(et_format.getText().toString());
+		a.setSerial(et_serial.getText().toString());
 		a.setName(et_name.getText().toString());
 		a.setItemType(et_itemtype.getText().toString());
 		a.setManufacturer(et_manufacturer.getText().toString());
@@ -227,6 +229,7 @@ public class ScanActivity extends Activity
 		itemId = ii.getId();
     	et_code.setText(ii.getBarcode());
     	et_format.setText(ii.getBarcodeFormat());
+    	et_serial.setText(ii.getSerial());
 		et_name.setText(ii.getName());
 		et_itemtype.setText(ii.getItemType());
 		et_manufacturer.setText(ii.getManufacturer());
@@ -244,6 +247,7 @@ public class ScanActivity extends Activity
 	private void resetViews(){
 		et_code.setText("");
 		et_format.setText("");
+		et_serial.setText("");
 		et_name.setText("");
 		et_itemtype.setText("");
 		et_manufacturer.setText("");
